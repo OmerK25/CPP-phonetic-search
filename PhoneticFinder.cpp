@@ -56,12 +56,15 @@ string find(string text, string word)
             else
                 return str;
         }
-
-        else if (( word.length() != j) && (text[i], word[j]))
+        else if ((word.length() == j) && (text.length() > i))
+        {
+            j = 0;
+            
+        }
+        else if (isMixed(text[i], word[j]))
         {
             str += text[i];
             j++;
-            cout << j << endl;
         }
         else
         {
@@ -73,12 +76,12 @@ string find(string text, string word)
             }
         }
     }
-  if ((text.length() == i) && (word.length() != str.length()))
+    if ((text.length() == i) && (word.length() != str.length()))
+    {
         {
-            {
-                throw string("Word not found");
-            }
+            throw string("Word not found");
         }
+    }
     return str;
 }
 } // namespace phonetic
