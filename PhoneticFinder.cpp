@@ -59,7 +59,7 @@ string find(string text, string word)
         else if ((word.length() == j) && (text.length() > i))
         {
             j = 0;
-            
+            str = "";
         }
         else if (isMixed(text[i], word[j]))
         {
@@ -78,8 +78,13 @@ string find(string text, string word)
     }
     if ((text.length() == i) && (word.length() != str.length()))
     {
+        try
         {
             throw string("Word not found");
+        }
+        catch (string message)
+        {
+            cout << "   caught exception: " << message << endl;
         }
     }
     return str;
