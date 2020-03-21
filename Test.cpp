@@ -56,7 +56,7 @@ TEST_CASE("Test replacement of more than two letters") {
     CHECK(find(text, "dice") == string("tike"));
     CHECK(find(text, "rull") == string("Roll"));
     CHECK(find(text, "dhe") == string("the"));
-    CHECK(find(text, "twise") == string("twisce"));
+    CHECK(find(text, "tvice") == string("twice"));
     CHECK(find(text, "DICe") == string("dice"));
     CHECK(find(text, "THE") == string("the"));
 
