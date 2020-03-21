@@ -22,5 +22,44 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
     CHECK(find(text, "HaPpI") == string("Happi"));
     /* Add more checks here */
 }
+TEST_CASE("Test replacement of w and v") {
+    string text = "i bought a new volkswagen";
+    CHECK(find(text, "volksvagen") == string("volkswagen"));
+    CHECK(find(text, "wolkswagen") == string("volkswagen"));
+    CHECK(find(text, "wolksvagen") == string("volkswagen"));
+    CHECK(find(text, "WolksVagen") == string("volkswagen"));
+    CHECK(find(text, "volkswagen") == string("volkswagen"));
 
-/* Add more test cases here */
+}
+
+TEST_CASE("Test replacement of i and y") {
+    string text = "I know how to spill superkalifragilistikexpialigetisch";
+    CHECK(find(text, "superkalyfragilystikexpyaligetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "SuperkalYfragIlistIkexpYaligetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "superkalIfragIlIstIkexpIalIgetIsch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "superkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "zbill") == string("spill"));
+
+}
+TEST_CASE("Test replacement of j and g") {
+    string text = " Sir Roger George Moore was an English actor best known for playing British secret agent James Bond";
+    CHECK(find(text, "Rojer") == string("Roger"));
+    CHECK(find(text, "georje") == string("George"));
+    CHECK(find(text, "ajent") == string("agent"));
+    CHECK(find(text, "games") == string("James"));
+    CHECK(find(text, "james") == string("James"));
+    CHECK(find(text, "George") == string("George"));
+
+} 
+TEST_CASE("Test replacement of more than two letters") {
+    string text = "Roll the dice twice";
+    CHECK(find(text, "dice") == string("tike"));
+    CHECK(find(text, "rull") == string("Roll"));
+    CHECK(find(text, "dhe") == string("the"));
+    CHECK(find(text, "twise") == string("twisce"));
+    CHECK(find(text, "DICe") == string("dice"));
+    CHECK(find(text, "THE") == string("the"));
+
+
+}
+
