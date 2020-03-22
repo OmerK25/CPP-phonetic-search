@@ -71,3 +71,4 @@ TEST_CASE("Test replacement of more than two letters") {
     CHECK(find(text, "DICe") == string("dice"));
     CHECK(find(text, "THE") == string("the"));
 
+}
