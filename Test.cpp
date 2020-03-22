@@ -23,12 +23,18 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
     /* Add more checks here */
 }
 TEST_CASE("Test replacement of w and v") {
-    string text = "i bought a new volkswagen";
+    string text = "I bought a new volkswagen";
     CHECK(find(text, "volksvagen") == string("volkswagen"));
     CHECK(find(text, "wolkswagen") == string("volkswagen"));
     CHECK(find(text, "wolksvagen") == string("volkswagen"));
     CHECK(find(text, "WolksVagen") == string("volkswagen"));
     CHECK(find(text, "volkswagen") == string("volkswagen"));
+    CHECK(find(text, "i") == string("I"));
+    CHECK(find(text, "BuOght") == string("bought"));
+    CHECK(find(text, "wulczvajen") == string("volkswagen"));
+    CHECK(find(text, "VOLKSWagEN") == string("volkswagen"));
+    CHECK(find(text, "NEW") == string("new"));
+    CHECK(find(text, "BUOJHD") == string("bought"));
 
 }
 
@@ -39,6 +45,9 @@ TEST_CASE("Test replacement of i and y") {
     CHECK(find(text, "superkalIfragIlIstIkexpIalIgetIsch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "superkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "zbill") == string("spill"));
+    CHECK(find(text, "Huw") == string("how"));
+    CHECK(find(text, "HOW") == string("how"));
+    CHECK(find(text, "du") == string("to"));   
     CHECK(find(text, "zopirkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));     CHECK(find(text, "superkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "suFerCalifraJilYstikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "ZuperKaliFragYLiZtikexpYaLigetisch") == string("superkalifragilistikexpialigetisch"));
