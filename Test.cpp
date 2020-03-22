@@ -20,7 +20,16 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
     CHECK(find(text, "Happi") == string("Happi"));
     CHECK(find(text, "HAPPI") == string("Happi"));
     CHECK(find(text, "HaPpI") == string("Happi"));
-    /* Add more checks here */
+
+    string text2 = "salt and pepper";
+    CHECK(find(text2, "zalt") == string("salt"));
+    CHECK(find(text2, "salD") == string("salt"));
+    CHECK(find(text2, "zALt") == string("salt"));
+    CHECK(find(text2, "ant") == string("salt"));       
+    CHECK(find(text2, "bebber") == string("pepper"));
+    CHECK(find(text2, "PeBpEr") == string("pepper"));    
+    CHECK(find(text2, "AND") == string("and"));
+    CHECK(find(text, "ZALD") == string("salt"));    
 }
 TEST_CASE("Test replacement of w and v , also of lower-case and upper-case") {
     string text = "I bought a new volkswagen";
@@ -48,7 +57,7 @@ TEST_CASE("Test replacement of i and y ,also of  lower-case and upper-case") {
     CHECK(find(text, "Huw") == string("how"));
     CHECK(find(text, "HOW") == string("how"));
     CHECK(find(text, "du") == string("to"));   
-    CHECK(find(text, "zopirkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));     CHECK(find(text, "superkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "zopirkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));    
     CHECK(find(text, "suFerCalifraJilYstikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "ZuperKaliFragYLiZtikexpYaLigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "superkalifRAGYlistikEXpialigetisch") == string("superkalifragilistikexpialigetisch"));
@@ -112,4 +121,18 @@ TEST_CASE("Test replacement ofmore than two letters,also lower-case and upper-ca
     CHECK(find(text, "puildyng") == string("building"));
     CHECK(find(text, "BUILding") == string("building"));
     CHECK(find(text, "BUILDING") == string("building"));
+}
+TEST_CASE("Test replacement ofmore than two letters,also lower-case and upper-case") {
+    string text = "To be or not to be That is the question";
+    CHECK(find(text, "do") == string("To"));
+    CHECK(find(text, "pe") == string("be"));
+    CHECK(find(text, "Be") == string("be"));
+    CHECK(find(text, "ur") == string("or"));    
+    CHECK(find(text, "OR") == string("or"));
+    CHECK(find(text, "dhAd") == string("That"));
+    CHECK(find(text, "yz") == string("is"));
+    CHECK(find(text, "Iz") == string("is"));
+    CHECK(find(text, "koestion") == string("question"));
+    CHECK(find(text, "CuestyUN") == string("question"));
+    CHECK(find(text, "QUESTION") == string("question"));
 }
