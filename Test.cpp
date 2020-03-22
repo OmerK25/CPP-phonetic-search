@@ -39,7 +39,11 @@ TEST_CASE("Test replacement of i and y") {
     CHECK(find(text, "superkalIfragIlIstIkexpIalIgetIsch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "superkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "zbill") == string("spill"));
-
+    CHECK(find(text, "zopirkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));     CHECK(find(text, "superkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "suFerCalifraJilYstikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "ZuperKaliFragYLiZtikexpYaLigetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "superkalifRAGYlistikEXpialigetisch") == string("superkalifragilistikexpialigetisch"));
+   
 }
 TEST_CASE("Test replacement of j and g") {
     string text = " Sir Roger George Moore was an English actor best known for playing British secret agent James Bond";
@@ -48,20 +52,14 @@ TEST_CASE("Test replacement of j and g") {
     CHECK(find(text, "ajent") == string("agent"));
     CHECK(find(text, "games") == string("James"));
     CHECK(find(text, "james") == string("James"));
-    CHECK(find(text, "George") == string("George"));
+    CHECK(find(text, "Zir") == string("Sir"));
+    CHECK(find(text, "syr") == string("Sir"));
+    CHECK(find(text, "rujer") == string("Roger"));
+    CHECK(find(text, "muuRE") == string("Moore"));
+    CHECK(find(text, "enjlyzh") == string("English"));
 
 } 
-TEST_CASE("Test replacement of more than two letters") {
-    string text = "Roll the dice twice";
-    CHECK(find(text, "dice") == string("tike"));
-    CHECK(find(text, "rull") == string("Roll"));
-    CHECK(find(text, "dhe") == string("the"));
-    CHECK(find(text, "tvice") == string("twice"));
-    CHECK(find(text, "DICe") == string("dice"));
-    CHECK(find(text, "THE") == string("the"));
 
-
-}
 TEST_CASE("Test replacement of more than two letters") {
     string text = "Roll the dice twice";
     CHECK(find(text, "tike") == string("dice"));
@@ -69,6 +67,11 @@ TEST_CASE("Test replacement of more than two letters") {
     CHECK(find(text, "dhe") == string("the"));
     CHECK(find(text, "tvice") == string("twice"));
     CHECK(find(text, "DICe") == string("dice"));
+    CHECK(find(text, "ROLL") == string("Roll"));
+    CHECK(find(text, "DICE") == string("dice"));
+    CHECK(find(text, "RolL") == string("Roll"));
+    CHECK(find(text, "TVyce") == string("twice"));
+    CHECK(find(text, "TvICE") == string("twice"));
     CHECK(find(text, "THE") == string("the"));
 
 }
