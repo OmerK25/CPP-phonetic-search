@@ -63,6 +63,7 @@ TEST_CASE("Test replacement of i and y ,also of  lower-case and upper-case") {
     CHECK(find(text, "superkalifRAGYlistikEXpialigetisch") == string("superkalifragilistikexpialigetisch"));
    
 }
+
 TEST_CASE("Test replacement of j and g,also of  lower-case and upper-case") {
     string text = " Sir Roger George Moore was an English actor best known for playing British secret agent James Bond";
     CHECK(find(text, "Rojer") == string("Roger"));

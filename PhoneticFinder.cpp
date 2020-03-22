@@ -78,15 +78,9 @@ string find(string text, string word)
     }
     if ((text.length() == i) && (word.length() != str.length()))
     {
-        try
-        {
-            throw string("Word not found");
-        }
-        catch (string message)
-        {
-            cout << "   caught exception: " << message << endl;
-        }
+        throw runtime_error("The word " + word + " is not in the text.");
     }
+
     return str;
 }
 } // namespace phonetic
