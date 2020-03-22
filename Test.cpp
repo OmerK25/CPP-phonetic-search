@@ -137,3 +137,17 @@ TEST_CASE("Test replacement ofmore than two letters,also lower-case and upper-ca
     CHECK(find(text, "CuestyUN") == string("question"));
     CHECK(find(text, "QUESTION") == string("question"));
 }
+TEST_CASE("Test replacement ofmore than two letters,also lower-case and upper-case") {
+    string text = "rick and morty are the best";
+    CHECK(find(text, "ryck") == string("rick"));
+    CHECK(find(text, "Rikk") == string("rick"));
+    CHECK(find(text, "Riqq") == string("rick"));
+    CHECK(find(text, "murty") == string("morty"));    
+    CHECK(find(text, "Morti") == string("morty"));
+    CHECK(find(text, "mordi") == string("morty"));
+    CHECK(find(text, "MORTY") == string("morty"));
+    CHECK(find(text, "ARE") == string("are"));
+    CHECK(find(text, "Pezt") == string("best"));
+    CHECK(find(text, "fezT") == string("best"));
+    CHECK(find(text, "RICC") == string("rick"));
+}
