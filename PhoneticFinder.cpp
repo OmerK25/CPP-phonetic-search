@@ -44,7 +44,6 @@ string find(string text, string word)
     size_t i = 0;
     for (i = 0; i < text.length(); i++)
     {
-        try{
         if (text[i] == ' ')
         {
             if (str.length() != word.length())
@@ -52,6 +51,10 @@ string find(string text, string word)
                 str = "";
                 i++;
                 j = 0;
+                while (text[i] != ' ')
+                {
+                    i++;
+                }
             }
             else
                 return str;
@@ -76,16 +79,10 @@ string find(string text, string word)
             }
         }
     }
-    
-    catch(...){
-        auto exception = std::current_exception();
-  	 	    cout << "   caught exception of type " << exception.__cxa_exception_type()->name() << endl;
-    }
     if ((text.length() == i) && (word.length() != str.length()))
     {
-               throw runtime_error("The word " + word + " is not in the text.");
+        throw runtime_error("The word " + word + " is not in the text.");
     }
     return str;
 }
 } // namespace phonetic
-}

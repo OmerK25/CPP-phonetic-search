@@ -57,7 +57,7 @@ TEST_CASE("Test replacement of i and y ,also of  lower-case and upper-case") {
     CHECK(find(text, "Huw") == string("how"));
     CHECK(find(text, "HOW") == string("how"));
     CHECK(find(text, "du") == string("to"));   
-    CHECK(find(text, "zopirkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));    
+    CHECK(find(text, "zoperkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));    
     CHECK(find(text, "suFerCalifraJilYstikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "ZuperKaliFragYLiZtikexpYaLigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "superkalifRAGYlistikEXpialigetisch") == string("superkalifragilistikexpialigetisch"));
@@ -65,7 +65,7 @@ TEST_CASE("Test replacement of i and y ,also of  lower-case and upper-case") {
 }
 
 TEST_CASE("Test replacement of j and g,also of  lower-case and upper-case") {
-    string text = " Sir Roger George Moore was an English actor best known for playing British secret agent James Bond";
+    string text = "Sir Roger George Moore was an English actor best known for playing British secret agent James Bond";
     CHECK(find(text, "Rojer") == string("Roger"));
     CHECK(find(text, "georje") == string("George"));
     CHECK(find(text, "ajent") == string("agent"));
