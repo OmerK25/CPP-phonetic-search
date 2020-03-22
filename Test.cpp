@@ -25,11 +25,11 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
     CHECK(find(text2, "zalt") == string("salt"));
     CHECK(find(text2, "salD") == string("salt"));
     CHECK(find(text2, "zALt") == string("salt"));
-    CHECK(find(text2, "ant") == string("salt"));       
+    CHECK(find(text2, "ant") == string("and"));       
     CHECK(find(text2, "bebber") == string("pepper"));
     CHECK(find(text2, "PeBpEr") == string("pepper"));    
     CHECK(find(text2, "AND") == string("and"));
-    CHECK(find(text, "ZALD") == string("salt"));    
+    CHECK(find(text2, "ZALD") == string("salt"));    
 }
 TEST_CASE("Test replacement of w and v , also of lower-case and upper-case") {
     string text = "I bought a new volkswagen";
