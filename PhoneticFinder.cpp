@@ -73,7 +73,7 @@ string find(string text, string word)
         {
             j = 0;
             str = "";
-            while (text[i] != ' ')
+            while ((text[i] != ' ') && (text.length() > i))
             {
                 i++;
             }

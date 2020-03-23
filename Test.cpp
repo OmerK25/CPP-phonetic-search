@@ -59,7 +59,7 @@ TEST_CASE("Test replacement of i and y ,also of  lower-case and upper-case") {
     CHECK(find(text, "du") == string("to"));   
     CHECK(find(text, "zoperkalifragilistikexpialigetisch") == string("superkalifragilistikexpialigetisch"));    
     CHECK(find(text, "suFerCalifraJilYstikexpialigetisch") == string("superkalifragilistikexpialigetisch"));
-    CHECK(find(text, "ZuperKaliFragYLiZtikexpYaLigetisch") == string("superkalifragilistikexpialigetisch"));
+    CHECK(find(text, "ZupirKaliFragYLiZtikexpYaLigetisch") == string("superkalifragilistikexpialigetisch"));
     CHECK(find(text, "superkalifRAGYlistikEXpialigetisch") == string("superkalifragilistikexpialigetisch"));
    
 }
