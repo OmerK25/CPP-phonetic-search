@@ -54,11 +54,11 @@ string find(string text, string word)
     {
         if ((word.empty()) || (text == ""))
             throw runtime_error("Empty word");
-        if (word.find(" ") >= 0)
-        {
-            throw runtime_error("Empty word");
-        }
-        
+        // if (word.find(" ") >= 0)
+        // {
+            // throw runtime_error("Empty word");
+        // }
+        // 
         while (text[i] == ' ')
         {
             i++;
