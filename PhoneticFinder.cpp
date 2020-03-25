@@ -1,5 +1,7 @@
 #include "PhoneticFinder.hpp"
 #include <iostream>
+#include <ctype.h>
+
 namespace phonetic
 {
 int isMixed(char t, char w)
@@ -44,8 +46,7 @@ string find(string text, string word)
     size_t i = 0;
     for (i = 0; i < text.length(); i++)
     {
-
-        if (word == "")
+        if ((word == "") || (text == ""))
             throw std::invalid_argument("Can't find the word in the text !");
 
         while (text[i] == ' ')
@@ -59,19 +60,19 @@ string find(string text, string word)
             j++;
             i++;
         }
+
         if (str.length() == word.length())
-            return str;
-
-        else
         {
-            str.clear();
-            j = 0;
+            if (!(isalpha(text[i])))
+                return str;
         }
 
-        if ((text.length() == i) && (word.length() != str.length()))
-        {
-            throw runtime_error("The word " + word + " is not in the text.");
-        }
+        str = "";
+        j = 0;
+    }
+    if ((word.length() != str.length()))
+    {
+        throw runtime_error("The word " + word + " is not in the text.");
     }
     return str;
 }
