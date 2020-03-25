@@ -47,42 +47,43 @@ int isMixed(char t, char w)
 
 string find(string text, string word)
 {
+        if (word.length() == 0 || word == " ")
+        {
+            throw runtime_error("Empty word");
+        }
+
     string str = "";
     int j = 0;
     size_t i = 0;
     for (i = 0; i < text.length(); i++)
     {
-        if ((word.empty()) || (text == "")){
-            if (word != "")
-            {
-            throw runtime_error("Empty word");
-            }
-        }
-        while (text[i] == ' ')
-        {
-            i++;
-        }
-
-        while ((text.length() > i) && (word.length() > j) && (isMixed(text[i], word[j])))
-        {
-            str += text[i];
-            j++;
-            i++;
-        }
-
-        if (str.length() == word.length())
-        {
-            if (!(isalpha(text[i])))
-                return str;
-        }
-
-        str = "";
-        j = 0;
-    }
-    if ((word.length() != str.length()))
+    
+    while (text[i] == ' ')
     {
-        throw runtime_error("The word " + word + " is not in the text.");
+        i++;
     }
-    return str;
+
+    while ((text.length() > i) && (word.length() > j) && (isMixed(text[i], word[j])))
+    {
+        str += text[i];
+        j++;
+        i++;
+    }
+
+    if (str.length() == word.length())
+    {
+        if (!(isalpha(text[i])))
+            return str;
+    }
+
+    str = "";
+    j = 0;
+}
+if ((word.length() != str.length()))
+{
+    throw runtime_error("The word " + word + " is not in the text.");
+}
+return str;
 }
 } // namespace phonetic
+
