@@ -44,44 +44,34 @@ string find(string text, string word)
     size_t i = 0;
     for (i = 0; i < text.length(); i++)
     {
-        if (text[i] == ' ')
+
+        if (word == "")
+            throw std::invalid_argument("Can't find the word in the text !");
+
+        while (text[i] == ' ')
         {
-            if (str.length() != word.length())
-            {
-                str = "";
-                i++;
-                j = 0;
-                while (text[i] != ' ')
-                {
-                    i++;
-                }
-            }
-            else
-                return str;
+            i++;
         }
-        else if ((word.length() == j) && (text.length() > i))
-        {
-            j = 0;
-            str = "";
-        }
-        else if (isMixed(text[i], word[j]))
+
+        while ((text.length() > i) && (word.length() > j) && (isMixed(text[i], word[j])))
         {
             str += text[i];
             j++;
+            i++;
         }
+        if (str.length() == word.length())
+            return str;
+
         else
         {
+            str.clear();
             j = 0;
-            str = "";
-            while ((text[i] != ' ') && (text.length() > i))
-            {
-                i++;
-            }
         }
-    }
-    if ((text.length() == i) && (word.length() != str.length()))
-    {
-        throw runtime_error("The word " + word + " is not in the text.");
+
+        if ((text.length() == i) && (word.length() != str.length()))
+        {
+            throw runtime_error("The word " + word + " is not in the text.");
+        }
     }
     return str;
 }
