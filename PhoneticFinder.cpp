@@ -47,7 +47,7 @@ string find(string text, string word)
     for (i = 0; i < text.length(); i++)
     {
         if ((word == "") || (text == ""))
-            throw std::invalid_argument("Can't find the word in the text !");
+        throw runtime_error("Empty word");
 
         while (text[i] == ' ')
         {
