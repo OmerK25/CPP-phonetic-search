@@ -46,7 +46,7 @@ string find(string text, string word)
     size_t i = 0;
     for (i = 0; i < text.length(); i++)
     {
-        if ((word.empty()) || (text == ""))
+        if ((word.empty()) || (text == " "))
             throw runtime_error("Empty word");
 
         while (text[i] == ' ')
