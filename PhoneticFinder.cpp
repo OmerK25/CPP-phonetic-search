@@ -1,3 +1,9 @@
+/*
+ *AUTHORS: Omer Katz & Raafat Marzuq
+ *
+ * Date: 2020-03
+ *
+ */
 #include "PhoneticFinder.hpp"
 #include <iostream>
 #include <ctype.h>
@@ -46,9 +52,13 @@ string find(string text, string word)
     size_t i = 0;
     for (i = 0; i < text.length(); i++)
     {
-        // if ((word.empty()) || (text == " "))
-            // throw runtime_error("Empty word");
-
+        if ((word.empty()) || (text == ""))
+            throw runtime_error("Empty word");
+        if (word.find(" ") >= 0)
+        {
+            throw runtime_error("Empty word");
+        }
+        
         while (text[i] == ' ')
         {
             i++;
